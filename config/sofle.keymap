@@ -38,9 +38,10 @@
 
                 /***** THUMB CLUSTERS ******/
             	/* Left */    &kp LCTRL &kp LGUI &kp LALT &kp SPACE &kp SQT
-				/* Right */  &kp ENTER &kp BSPC &kp K_COPY &kp K_PASTE &kp K_UNDO           >;
+		/* Right */  &kp ENTER &kp BSPC &kp LC(C) &kp LC(V) &kp LC(Z)         >;
 
               	sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
+
