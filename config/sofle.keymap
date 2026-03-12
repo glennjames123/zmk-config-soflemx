@@ -1,9 +1,8 @@
 /*
- * Two-layer Sofle keymap for USER
- * Base layer + Bluetooth layer
+ * Single-layer Sofle keymap for USER
  * Encoders: left = scroll, right = volume
  * Encoder press: left = mute, right = play/pause
- * Hold tilde key for Bluetooth layer access
+ * No layers (base layer only)
  */
 
 #include <behaviors.dtsi>
@@ -12,7 +11,6 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define BASE 0
-#define BT   1
 
 / {
     keymap {
@@ -23,59 +21,26 @@
 
             bindings = <
                 /***** NUMBER ROW *****/
-                &kp ESCAPE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5
-                &kp N6       &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
+                &kp ESCAPE   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5
+                &kp N6       &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
 
                 /***** QWERTY ROW *****/
-                &kp TAB      &kp Q       &kp W       &kp E       &kp R       &kp T
-                &kp Y        &kp U       &kp I       &kp O       &kp P       &kp EQUAL
+                &kp TAB      &kp Q     &kp W     &kp E     &kp R     &kp T
+                &kp Y        &kp U     &kp I     &kp O     &kp P     &kp EQUAL
 
                 /***** HOME ROW *****/
-                &kp CAPSLOCK &kp A       &kp S       &kp D       &kp F       &kp G
-                &kp H        &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
+                &kp CAPSLOCK &kp A     &kp S     &kp D     &kp F     &kp G
+                &kp H        &kp J     &kp K     &kp L     &kp SEMI  &kp DELETE
 
                 /***** BOTTOM ROW (not including thumbs) *****/
-                &kp LSHIFT   &kp Z       &kp X       &kp C       &kp V       &kp B     &kp C_MUTE
-                &kp C_PLAY   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH  &kp RSHIFT
+                &kp LSHIFT   &kp Z     &kp X     &kp C     &kp V     &kp B     &kp C_MUTE
+                &kp C_PLAY   &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp BACKSLASH
 
-                /***** THUMB CLUSTERS *****/
-                /* Left */     &lt BT GRAVE  &kp LCTRL  &kp LALT    &kp SPACE   &kp LGUI
-                /* Right */    &kp ENTER    &kp BSPC   &kp K_COPY  &kp K_PASTE &kp K_UNDO
-            >;
+                /***** THUMB CLUSTERS ******/
+            	/* Left */    &kp LCTRL &kp LGUI &kp LALT &kp SPACE &kp SQT
+		/* Right */   &kp ENTER &kp BSPC &kp LCTRL(C) &kp LCTRL(V) &kp LCTRL(Z)            >;
 
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
-        };
-
-        bt_layer {
-            display-name = "Bluetooth";
-
-            bindings = <
-                /***** NUMBER ROW *****/
-                &bt BT_CLR_ALL &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                &trans         &trans       &trans       &trans       &trans       &trans
-
-                /***** QWERTY ROW *****/
-                &trans         &trans       &trans       &trans       &trans       &trans
-                &trans         &trans       &trans       &trans       &trans       &trans
-
-                /***** HOME ROW *****/
-                &trans         &trans       &trans       &trans       &trans       &trans
-                &trans         &trans       &trans       &trans       &trans       &trans
-
-                /***** BOTTOM ROW (not including thumbs) *****/
-                &trans         &trans       &trans       &trans       &trans       &trans &trans
-                &trans         &trans       &trans       &trans       &trans       &trans &trans
-
-                /***** THUMB CLUSTERS *****/
-                /* Left */     &trans       &trans       &trans       &trans       &trans
-                /* Right */    &trans       &trans       &trans       &trans       &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+              	sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
