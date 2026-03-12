@@ -1,8 +1,10 @@
-x/*
+/*
  * Two-layer Sofle keymap for USER
  * Base layer + Bluetooth layer
- * Encoders: left = scroll, right = volume
- * Encoder press: left = mute, right = play/pause
+ * Left encoder: horizontal zoom
+ * Right encoder: vertical zoom
+ * Left encoder press: mute
+ * Right encoder press: Shift+Option+Command+O
  * Hold tilde key for Bluetooth layer access
  */
 
@@ -36,16 +38,16 @@ x/*
 
                 /***** BOTTOM ROW (not including thumbs) *****/
                 &kp LSHIFT   &kp Z       &kp X       &kp C       &kp V       &kp B     &kp C_MUTE
-                &kp C_PLAY   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH  &kp RSHIFT
+                &kp LS(LA(LG(O))) &kp N  &kp M       &kp COMMA   &kp DOT     &kp FSLH  &kp RSHIFT
 
                 /***** THUMB CLUSTERS *****/
-                /* Left */     &lt BT GRAVE  &kp LCTRL  &kp LALT    &kp SPACE   &kp LGUI
-               /* Right */  &kp ENTER &kp BSPC &kp LC(C) &kp LC(V) &kp LC(Z)         >;
-
+                /* Left */     &lt BT GRAVE     &kp LCTRL  &kp LALT   &kp SPACE  &kp LGUI
+                /* Right */    &kp ENTER        &kp BSPC   &kp SPACE  &kp LS(LA(LG(P)))  &kp LS(SPACE)
+            >;
 
             sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+                <&inc_dec_kp LG(RIGHT) LG(LEFT)>,
+                <&inc_dec_kp LG(DOWN)  LG(UP)>;
         };
 
         bt_layer {
@@ -74,8 +76,8 @@ x/*
             >;
 
             sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP K_VOLUME_DOWN>;
+                <&inc_dec_kp LG(RIGHT) LG(LEFT)>,
+                <&inc_dec_kp LG(DOWN)  LG(UP)>;
         };
     };
 };
