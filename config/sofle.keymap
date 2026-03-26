@@ -64,10 +64,10 @@
 
                 /***** HOME ROW *****/
                 &trans         &trans       &trans       &trans       &trans       &trans
-                &trans         &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
+                &kp HOME       &kp LEFT     &kp DOWN     &kp RIGHT    &kp END      &trans
 
                 /***** BOTTOM ROW (not including thumbs) *****/
-                &trans         &trans       &trans       &trans       &trans       &trans &trans
+                &kp LSHIFT     &trans       &trans       &trans       &trans       &trans &trans
                 &kp C_MUTE     &trans       &trans       &trans       &trans       &trans &trans
 
                 /***** THUMB CLUSTERS *****/
