@@ -60,24 +60,24 @@
 
                 /***** QWERTY ROW *****/
                 &trans         &trans       &trans       &trans       &trans       &trans
-                &trans         &trans       &trans       &trans       &trans       &trans
+                &trans         &trans       &kp UP       &trans       &trans       &trans
 
                 /***** HOME ROW *****/
                 &trans         &trans       &trans       &trans       &trans       &trans
-                &trans         &trans       &trans       &trans       &trans       &trans
+                &trans         &kp LEFT     &kp DOWN     &kp RIGHT    &trans       &trans
 
                 /***** BOTTOM ROW (not including thumbs) *****/
                 &trans         &trans       &trans       &trans       &trans       &trans &trans
-                &trans         &trans       &trans       &trans       &trans       &trans &trans
+                &kp C_MUTE     &trans       &trans       &trans       &trans       &trans &trans
 
                 /***** THUMB CLUSTERS *****/
                 /* Left */     &trans       &trans       &trans       &trans       &trans
-                /* Right */    &trans       &trans       &trans       &trans       &trans
+                /* Right */    &trans       &trans       &kp LC(C)    &kp LC(V)    &kp LC(Z)
             >;
 
             sensor-bindings =
                 <&inc_dec_kp LG(RIGHT) LG(LEFT)>,
-                <&inc_dec_kp LG(DOWN)  LG(UP)>;
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };
